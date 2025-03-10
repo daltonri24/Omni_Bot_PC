@@ -15,16 +15,29 @@ SLAM featues including mapping and visual odometry are currently working. Using 
 <img src="images/250130172521015.png" alt="TOP" width="800"/>
 
 
-INSERT VIDEO HERE
-
+TODO: INSERT VIDEO 
 
 ## Hardware
 
-### DESIGNED PARTS
+### Custom Parts
 
-All 3D printed parts used were designed using Autodesk Fusion This includes parts for mounting motors and the camera, structural supports, and a . The STL files for all parts are linked in the Google Drive [here](https://drive.google.com/drive/folders/1KrRYiB0WbXtAPRXzIc1sEI4wl8nm7dq_?usp=sharing).
+A variety of different parts were designed using Autodesk Fusion and fabricated with a 3D printer. The STL files for all parts are linked in the Google Drive [here](https://drive.google.com/drive/folders/1KrRYiB0WbXtAPRXzIc1sEI4wl8nm7dq_?usp=sharing).
+
+
+### Electrical Wiring
+
+The robot is powered from a 3 cell lipo battery outputting 12 volts. While the motors are controlled from these 12 volts, a buck converter is used to supply 5 volts to the majority of the circuitry. Additionally, the pico and camera are connected to the Raspberry Pi 5 through a externally powered usb hub. This prevents these compenents from sapping too much power from the Raspberry Pi and causing unpredictable behavior. 
+
+WARNING: While I feel good in the power management of the robot, this is certainly the part of the process I knew the least about coming in. Though nothing has blown up (yet), I would be wary of using this as a model of how to properly wire a robot.
+
+
+### Full Assembly
+
+As prevously mentioned 
 
 #### TOP LAYER
+
+Focused on the brains of the bot, the top layer of the bot contains the Raspberry Pi and the Camera. The usb hub on the bottom side of the plate is used to power the camera externally from the Pi. 
 <table>
     <tr>
         <td><img src="images/IMG_5516.jpg" alt="TOP" width="400"/></td>
@@ -33,6 +46,9 @@ All 3D printed parts used were designed using Autodesk Fusion This includes part
 </table>
 
 #### MIDDLE LAYER
+
+This layer contains the majority of the wiring and circuitry used in the bot. In addition to the pico, this includes the motor drivers (L298N), a power switch, fuse, and imu. 
+
 <table>
     <tr>
         <td><img src="images/IMG_5518.jpg" alt="BOTTOM" width="400"/></td>
@@ -41,6 +57,8 @@ All 3D printed parts used were designed using Autodesk Fusion This includes part
 </table>
 
 #### BOTTOM LAYER
+
+Acting as the base of the robot, the main purpose of this layer is containing the motors. However, this layer contains the parts in blue are also used to contain the buck converter, lipo battery, and battery display. 
 <table>
     <tr>
         <td><img src="images/IMG_5520.jpg" alt="BACK" width="400"/></td>
@@ -67,7 +85,7 @@ The graphic shown explains the general communication between the different compu
 
 Considering this is the first time I have built a robot entirely from scratch like this, there is plenty of things I want to add or improve on based on the experience so far. 
 
-1. I plan on integrating ROS2 control into the robot. Using more of the proper structure. 
+1. I plan on integrating ROS2 control into the robot. Using more of the proper structure. Allow for easier simulation using Gazebo within ROS
 
 2. Complete Autonomous Navigation
 
