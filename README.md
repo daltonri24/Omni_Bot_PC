@@ -2,7 +2,7 @@
 __Author/Creator :__ Dalton Richardson 
 
 ### Overview
-This repo provides details and code for an in progress omni wheeled controlled robot ultilizing ROS 2 on a Raspberry Pi 5 with docker. SLAM capabilites are provided with a Realsense D435 depth camera using visual odometry whle motors are tracked and controlled using a raspberry pi pico running micro ros. The chasis is structured using 3 stacking tiers that include over 10 custom parts designed in Solidworks and fabricated using a 3D printer. 
+This repo provides details and code for an in progress omni wheeled robot ultilizing ROS 2 on a Raspberry Pi 5 with docker. SLAM capabilites are provided with a Realsense D435 depth camera using visual odometry whle motors are tracked and controlled using a raspberry pi pico running micro ros. The chasis is structured using 3 stacking tiers that include over 10 custom parts designed in Solidworks and fabricated using a 3D printer. 
 
 My goal with this project has been to gain a more familiar understanding of  the full process that goes into buidling a robot. This includes the designing of parts, the setup of wiring and power distribution, the development of software, and more.
 
@@ -19,7 +19,7 @@ TODO: INSERT VIDEO
 
 ## Hardware
 
-### Custom Parts
+### CAD and 3D Printing
 
 A variety of different parts were designed using Autodesk Fusion and fabricated with a 3D printer. The STL files for all parts are linked in the Google Drive [here](https://drive.google.com/drive/folders/1KrRYiB0WbXtAPRXzIc1sEI4wl8nm7dq_?usp=sharing).
 
@@ -33,7 +33,7 @@ WARNING: While I feel good in the power management of the robot, this is certain
 
 ### Full Assembly
 
-As prevously mentioned 
+As prevously mentioned, there are 3 stacking tiers to the robot that each contain different parts of the circuitry and components. 
 
 #### TOP LAYER
 
@@ -58,7 +58,7 @@ This layer contains the majority of the wiring and circuitry used in the bot. In
 
 #### BOTTOM LAYER
 
-Acting as the base of the robot, the main purpose of this layer is containing the motors. However, this layer contains the parts in blue are also used to contain the buck converter, lipo battery, and battery display. 
+Acting as the base of the robot, the main purpose of this layer is containing the motors. However, there are also the 3D printed parts in blue which are used to contain the buck converter, lipo battery, and battery display. 
 <table>
     <tr>
         <td><img src="images/IMG_5520.jpg" alt="BACK" width="400"/></td>
@@ -85,14 +85,12 @@ The graphic shown explains the general communication between the different compu
 
 Considering this is the first time I have built a robot entirely from scratch like this, there is plenty of things I want to add or improve on based on the experience so far. 
 
-1. I plan on integrating ROS2 control into the robot. Using more of the proper structure. Allow for easier simulation using Gazebo within ROS
+1. My next plans are to integrate ROS 2 control into the software controlling the bot. This would have many benefits on top of just being cleaner than how I do it now. It would allow for the use of custom controllers such as [this](https://github.com/mateusmenezes95/omnidirectional_controllers?tab=readme-ov-file), make Nav2 much easier to implement (See next point), and allow for the use of gazebo for simulated testing. 
 
-2. Complete Autonomous Navigation
-
-3. Improve Mapping
+2. Complete autonomous navigation while mapping. While I would love to skip straight to this, I first need to improve the mapping so I have better occupancy grids the navigation can work off of. 
 
 ## References
 
-1. Robot youtube channel
+1. [Articulated Robotics](https://www.youtube.com/@ArticulatedRobotics/featured) - Great youtube channel with tutorials on robotics
 
-2. UofM MBot
+2. UofM MBot - The robot used by many classes at the University of Michigan. 
